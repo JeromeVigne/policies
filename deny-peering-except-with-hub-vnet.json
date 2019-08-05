@@ -1,0 +1,34 @@
+{
+    "properties": {
+        "displayName": "Denies vNet peering except with the HUB VNet from Corp-IT",
+        "description": "This policy denies the creation of vNet peering except with the HUB vNet from Corp-IT",
+        "parameters": {
+            "vNetId": {
+                "type": "string",
+                "metadata": {
+                    "description": "Resource Id for the vNet",
+                    "displayName": "vNet Id"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings"
+                    },
+                    {
+                        "not": {
+                            "field": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/remoteVirtualNetwork.id",
+                            "like": "[concat(parameters('vNetId'),'*')]"
+                        }
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
