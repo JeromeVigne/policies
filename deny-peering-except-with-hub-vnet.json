@@ -10,25 +10,25 @@
                     "displayName": "vNet Id"
                 }
             }
-        },
+        }
+    },
         "policyRule": {
             "if": {
                 "allOf": [
                     {
-                        "field": "type",
-                        "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings"
+                      "field": "type",
+                      "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings"
                     },
                     {
-                        "not": {
-                            "field": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/remoteVirtualNetwork.id",
-                            "like": "[concat(parameters('vNetId'),'*')]"
-                        }
+                      "not": {
+                        "field": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/remoteVirtualNetwork.id",
+                        "equals": "[parameters('vNetId')]"
+                      }
                     }
-                ]
+                  ]
             },
             "then": {
                 "effect": "deny"
             }
         }
-    }
 }
