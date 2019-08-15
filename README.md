@@ -5,12 +5,11 @@ Least overhead would be when defining a restrciting tule (such as no netwrok pee
 
 Policies:
 * no public access to Azure SQL DBs 
-enforcing encryption on storage - https://docs.microsoft.com/en-us/azure/governance/policy/samples/require-storage-account-encryption
-* no on-prem data gateway
+* enforcing encryption on storage - https://docs.microsoft.com/en-us/azure/governance/policy/samples/require-storage-account-encryption
+* no on-prem data gateway ???
 * no vnet peering - done
-* no VPN Gateways
-* no ER Gateways
-* no Pips on VM - see samples
-* Enforce Route Tables: https://github.com/Azure/azure-policy/tree/master/samples/Network/enforce-route-table-on-subnet
+* no VPN Gateways,no ER Gateways - done (not allowed Type)
+* no Pips on VM - done - see samples
+* Enforce Route Tables: https://github.com/Azure/azure-policy/tree/master/samples/Network/enforce-route-table-on-subnet done
 
 
